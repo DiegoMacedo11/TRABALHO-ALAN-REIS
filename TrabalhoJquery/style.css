@@ -126,16 +126,25 @@ body {
     margin-right: auto;
     max-width: 55%;
     border-radius: 8px;
+    cursor: pointer; /* Indica que a imagem é clicável */
+    transition: box-shadow 0.3s ease-in-out; /* Adiciona transição para o efeito hover */
+}
+
+.carousel img:hover {
+    box-shadow: 0 0 15px 5px #00ffff; /* Efeito de "wave" mais forte ao passar o mouse */
 }
 
 .background {
     background: linear-gradient(to bottom, #290544, #f509d6);
 }
 .carousel h2 {
-    /* Estilos para o título do carrossel */
     color: #333; /* Cor do texto - escolha uma que contraste bem com o fundo */
     text-align: center; /* Centralizar o texto */
+    margin-top: 30px; /* Ajusta a margem superior para posicionar mais abaixo */
+    font-size: 30px; /* Mantém o tamanho da fonte */
+    margin-left: 75px; /* Posicionamento à esquerda */
 }
+
 .background h2 {
     padding-top: 90px;
     opacity: 1;
@@ -145,12 +154,12 @@ body {
     margin-top: 0px;
     color: white;
     font-size: 30px;
-    margin-left: 75px;
+    margin-left: 75px; /* Mantém o posicionamento à esquerda */
 }
 .carousel{
     padding-bottom: 150px;
 }
-.background h3{
+.background h3 {
     padding-top: 178px;
     opacity: 1;
     transform: translateY(0);
@@ -159,7 +168,7 @@ body {
     margin-top: 0px;
     color: white;
     font-size: 57px;
-    margin-left: 300px;
+    margin-left: 300px; /* Mantém o posicionamento à esquerda */
     MARGIN-BOTTOM: 0px;
 }
 
@@ -176,33 +185,50 @@ body {
 
 
 /* Estilo para Contatos */
+/* Estilo para Contato */
+/* Estilo para Contato */
 .contato {
     position: fixed;
     top: 10px;
     left: 10px;
-    background-color: #f509d6; /* Cor predominante do gradiente */
-    padding: 5px 10px;
+    background: linear-gradient(to right, #6600cc, #ff0080);
+    padding: 8px 15px;
     border-radius: 5px;
     font-family: 'Press Start 2P', cursive;
     text-decoration: none;
-    color: #fff; /* Branco */
-    z-index: 1000; /* Certifique-se de que o z-index seja maior que o conteúdo da página */
+    color: #fff;
+    z-index: 1000;
+    animation: pulse 1s infinite alternate;
+    transition: z-index 0.3s ease-in-out;
 }
 
-/* Estilo para Academicos */
+/* Estilo para Acadêmicos */
 .academicos {
     position: fixed;
     top: 10px;
     left: 80px;
-    background-color: #f509d6; /* Cor predominante do gradiente */
-    padding: 5px 10px;
+    background: linear-gradient(to right, #6600cc, #ff0080);
+    padding: 8px 15px;
     border-radius: 5px;
     font-family: 'Press Start 2P', cursive;
     text-decoration: none;
-    color: #fff; /* Branco */
-    z-index: 1000; /* Certifique-se de que o z-index seja maior que o conteúdo da página */
+    color: #fff;
+    z-index: 1000;
+    animation: pulse 1s infinite alternate-reverse;
+    transition: z-index 0.3s ease-in-out;
 }
-
+.contato:hover,
+.academicos:hover {
+    z-index: 1100;
+}
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
 /* Estilo Hover (quando o mouse está sobre os links) */
 .contato:hover, .academicos:hover {
     background-color: #d605b0; /* Tom mais escuro do gradiente */
@@ -240,6 +266,11 @@ body {
     max-width: 100%;
     border-radius: 50%;
     width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.member img:hover {
+    transform: scale(1.1);
 }
 
 .member-info {
@@ -519,5 +550,68 @@ button:hover {
     margin-top: 20px;
 }
 /* Adicione este bloco de estilos no seu arquivo CSS */
+/* Modal */
+.modal {
+    display: none; /* Por padrão, oculte o modal */
+    position: fixed;
+    z-index: 1500;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px; /* Adiciona um espaço entre a borda do modal e o conteúdo */
+    overflow: auto; /* Permitir rolagem quando necessário */
+}
 
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    border: 4px solid #ff0080; /* Cor vibrante dos anos 80 */
+    border-radius: 10px;
+    position: relative; /* Posição relativa para elementos internos */
+    overflow: hidden; /* Para o conteúdo não ultrapassar o modal */
+}
 
+.close {
+    color: #ff0080; /* Cor vibrante dos anos 80 */
+    font-family: 'Arial', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: transform 0.3s; /* Adiciona transição para uma experiência de fechamento mais suave */
+}
+
+.close:hover {
+    transform: scale(1.2); /* Aumenta o ícone do fechar ao passar o mouse por cima */
+}
+
+.image-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 20px;
+}
+
+.image-details img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+.image-details {
+    text-align: center;
+}
+
+.image-details h3 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.image-details p {
+    font-size: 16px;
+}
